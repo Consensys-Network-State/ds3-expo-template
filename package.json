@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@consensys/ui": "0.0.3",
-    "@consensys/ui-config": "0.0.3",
+    "@consensys/ui-config": "0.0.4",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
@@ -48,7 +48,6 @@
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
     "@types/react-test-renderer": "^18.3.0",
-    "babel-preset-expo": "^13.1.11",
     "jest": "^29.2.1",
     "jest-expo": "~52.0.2",
     "react-test-renderer": "18.3.1",
