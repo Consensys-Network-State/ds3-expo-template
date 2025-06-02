@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@consensys/ui": "0.0.3",
-    "@consensys/ui-config": "0.0.4",
+    "@consensys/ui-config": "0.0.5",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
