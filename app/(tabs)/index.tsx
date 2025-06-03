@@ -10,7 +10,7 @@ import {
   ModeToggle,
   Text,
   ThemeSwitcher
-} from '@consensys/ui';
+} from '@consensys/ds3';
 
 export default function HomeScreen() {
   return (

@@ -1,6 +1,6 @@
 const { getDefaultConfig } = require('expo/metro-config');
-const { withCui } = require('@consensys/ui-config/metro');
+const { withDs3 } = require('@consensys/ds3-config/metro');
 
 const config = getDefaultConfig(__dirname);
 
-module.exports = withCui(config);
+module.exports = withDs3(config);
