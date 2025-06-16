@@ -34,7 +34,7 @@ function ThemedDrawer() {
           <View style={{ flexDirection: 'row', gap: 8, marginRight: 16, alignItems: 'center' }}>
             <ModeToggle />
             <ThemeSwitcher />
-            <Button className="bg-primary-6" onPress={() => openLink('https://github.com/Consensys-Network-State/ds3')}>
+            <Button color="primary" onPress={() => openLink('https://github.com/Consensys-Network-State/ds3')}>
               <Button.Icon icon={ExternalLink} />
               <Button.Text>Docs</Button.Text>
             </Button>
