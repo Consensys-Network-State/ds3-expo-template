@@ -20,7 +20,7 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: {
           backgroundColor: colors.neutral1,
-          borderTopColor: colors.neutral6,
+          borderTopColor: colors.neutral3,
           ...Platform.select({
             ios: {
               position: 'absolute',

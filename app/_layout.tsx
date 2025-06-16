@@ -1,27 +1,65 @@
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
-import { ThemeProvider, useThemeColors } from '@consensys/ds3'
+import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, Text } from '@consensys/ds3'
 import { PortalHost } from '@rn-primitives/portal';
 import ExpoConstants from 'expo-constants';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { View } from 'react-native';
 
-function ThemedStack({ children }: { children: React.ReactNode }) {
+function ThemedDrawer() {
   const colors = useThemeColors();
 
   return (
-    <Stack screenOptions={{
-      contentStyle: {
-        backgroundColor: colors.neutral1
-      }
-    }}>
-      {children}
-    </Stack>
+    <Drawer
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.neutral1,
+          borderBottomWidth: 1,
+          borderBottomColor: colors.neutral6,
+        },
+        headerTintColor: colors.neutral12,
+        drawerStyle: {
+          backgroundColor: colors.neutral1,
+        },
+        drawerActiveTintColor: colors.primary11,
+        drawerInactiveTintColor: colors.neutral11,
+        headerRight: () => (
+          <View style={{ flexDirection: 'row', gap: 8, marginRight: 16, alignItems: 'center' }}>
+            <ModeToggle />
+            <ThemeSwitcher />
+            <Button className="bg-primary-6" onPress={() => window.open('https://docs.expo.dev', '_blank')}>
+              <Text>Docs</Text>
+            </Button>
+          </View>
+        ),
+      }}>
+      <Drawer.Screen
+        name="(tabs)"
+        options={{
+          title: 'Home',
+          headerShown: true,
+        }}
+      />
+      <Drawer.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          headerShown: true,
+        }}
+      />
+      <Drawer.Screen
+        name="+not-found"
+        options={{
+          drawerItemStyle: { display: 'none' },
+          headerShown: false,
+        }}
+      />
+    </Drawer>
   );
 }
 
@@ -46,10 +84,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
-      <ThemedStack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </ThemedStack>
+      <ThemedDrawer />
       <StatusBar style="auto" />
       <PortalHost />
     </ThemeProvider>
