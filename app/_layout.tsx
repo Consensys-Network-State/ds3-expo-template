@@ -5,11 +5,12 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
-import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, Text } from '@consensys/ds3'
+import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, Text, openLink } from '@consensys/ds3'
 import { PortalHost } from '@rn-primitives/portal';
 import ExpoConstants from 'expo-constants';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { View } from 'react-native';
+import { ExternalLink } from 'lucide-react-native';
 
 function ThemedDrawer() {
   const colors = useThemeColors();
@@ -20,9 +21,10 @@ function ThemedDrawer() {
         headerStyle: {
           backgroundColor: colors.neutral1,
           borderBottomWidth: 1,
-          borderBottomColor: colors.neutral6,
+          borderBottomColor: colors.neutral3,
         },
         headerTintColor: colors.neutral12,
+        headerTitleAlign: 'left',
         drawerStyle: {
           backgroundColor: colors.neutral1,
         },
@@ -32,8 +34,9 @@ function ThemedDrawer() {
           <View style={{ flexDirection: 'row', gap: 8, marginRight: 16, alignItems: 'center' }}>
             <ModeToggle />
             <ThemeSwitcher />
-            <Button className="bg-primary-6" onPress={() => window.open('https://docs.expo.dev', '_blank')}>
-              <Text>Docs</Text>
+            <Button className="bg-primary-6" onPress={() => openLink('https://github.com/Consensys-Network-State/ds3')}>
+              <Button.Icon icon={ExternalLink} />
+              <Button.Text>Docs</Button.Text>
             </Button>
           </View>
         ),
