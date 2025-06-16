@@ -8,7 +8,6 @@ import "../global.css";
 import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, Text, openLink } from '@consensys/ds3'
 import { PortalHost } from '@rn-primitives/portal';
 import ExpoConstants from 'expo-constants';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { View } from 'react-native';
 import { ExternalLink } from 'lucide-react-native';
 
@@ -21,7 +20,7 @@ function ThemedDrawer() {
         headerStyle: {
           backgroundColor: colors.neutral1,
           borderBottomWidth: 1,
-          borderBottomColor: colors.neutral3,
+          borderBottomColor: colors.neutral5,
         },
         headerTintColor: colors.neutral12,
         headerTitleAlign: 'left',
@@ -70,7 +69,6 @@ function ThemedDrawer() {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
