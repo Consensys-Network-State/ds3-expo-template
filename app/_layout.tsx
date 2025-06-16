@@ -1,4 +1,3 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -6,11 +5,25 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
-import { ThemeProvider as DS3Provider } from '@consensys/ds3'
+import { ThemeProvider, useThemeColors } from '@consensys/ds3'
 import { PortalHost } from '@rn-primitives/portal';
 import ExpoConstants from 'expo-constants';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+
+function ThemedStack({ children }: { children: React.ReactNode }) {
+  const colors = useThemeColors();
+
+  return (
+    <Stack screenOptions={{
+      contentStyle: {
+        backgroundColor: colors.neutral1
+      }
+    }}>
+      {children}
+    </Stack>
+  );
+}
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,14 +45,12 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <DS3Provider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </DS3Provider>
+    <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
+      <ThemedStack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
+      </ThemedStack>
+      <StatusBar style="auto" />
       <PortalHost />
     </ThemeProvider>
   );

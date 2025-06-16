@@ -9,13 +9,16 @@ import {
   Button,
   ModeToggle,
   Text,
-  ThemeSwitcher
+  ThemeSwitcher,
+  useThemeColors
 } from '@consensys/ds3';
 
 export default function HomeScreen() {
+  const colors = useThemeColors();
+
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={colors.primary3}
       headerImage={
         <Image
           source={require('@/assets/images/partial-react-logo.png')}
@@ -28,7 +31,6 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <View className="flex flex-col sm:flex-row gap-2">
-
           <View className="flex flex-row">
             <ModeToggle />
             <ThemeSwitcher />
