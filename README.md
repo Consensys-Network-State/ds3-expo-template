@@ -1,34 +1,50 @@
-# Expo + DS3
+# DS3 Expo Template
 
-This example provides a minimal setup to get DS3 working in Expo.
+A pre-configured Expo template with DS3 (Design System 3) already set up and ready to use.
 
-## Install DS3
+## Features
 
-This template was created with the following steps:
+- 🎨 Pre-configured DS3 design system
+- 📱 Built with Expo for cross-platform development
+- 🎯 TypeScript support
+- 🎭 Theme customization support
+- 🎯 Tailwind CSS with NativeWind preset
+- 🔒 Safe Area Context support
+- 🌐 React Native Web support
 
-### Dependencies
+## Documentation
 
-Create a vite application:
+For comprehensive documentation about DS3, including UI components, theming, and configuration, visit the [DS3 Monorepo](https://github.com/Consensys-Network-State/ds3).
 
-```bash
-pnpm create expo@latest
-```
+For details on how this template was set up from scratch, see [SETUP.md](./SETUP.md).
 
-Install dependencies:
+## Quick Start
 
-```bash
-pnpm add @consensys/ds3-config @consensys/ds3
-```
-
-### DS3 Configuration
-
-Create `theme.config.js` file:
+### Option 1: Using degit
 
 ```bash
-touch theme.config.js
+pnpm dlx degit Consensys-Network-State/ds3-expo-template ui
+cd ui
+pnpm install
+pnpm start
 ```
 
-Configure `theme.config.js`:
+### Option 2: Using GitHub Template
+
+1. Click "Use this template" on the GitHub repository
+2. Clone your new repository
+3. Install dependencies:
+```bash
+pnpm install
+```
+4. Start the development server:
+```bash
+pnpm start
+```
+
+## Customization
+
+The template comes with a default theme configuration in `theme.config.js`. You can customize the theme by modifying this file:
 
 ```js
 const { generateConfig } = require('@consensys/ds3-theme');
@@ -36,7 +52,6 @@ const { generateConfig } = require('@consensys/ds3-theme');
 module.exports = generateConfig({
   themes: {
     default: {
-      // use any radix colors - https://www.radix-ui.com/colors
       colors: {
         neutral: 'gray',
         primary: 'violet',
@@ -44,171 +59,10 @@ module.exports = generateConfig({
         error: 'red',
         warning: 'yellow',
         success: 'green',
-        // add custom schemes here
       },
     },
   },
 });
 ```
 
-Under `app/_layout.tsx`, replace the `ThemeProvider`:
-
-```tsx
-import { ThemeProvider } from "@consensys/ds3";
-import ExpoConstants from 'expo-constants';
-
-// ...
-
-return (
-  <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
-     // ...
-  </ThemeProvider>
-);
-```
-
-### Tailwind Configuration
-
-Instantiate Tailwind:
-
-```bash
-pnpm exec tailwindcss init
-```
-
-Configure `tailwind.config.js`:
-
-```js
-import nativewindPreset from "@consensys/ds3-config/nativewind";
-import themeConfig from "./theme.config";
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    './node_modules/@consensys/ds3/**/*.{js,jsx,ts,tsx}',
-    '!node_modules/**/*.{js,ts,jsx,tsx}',
-  ],
-  presets: [nativewindPreset(themeConfig)],
-}
-```
-
-Create a `global.css` file:
-
-```bash
-touch global.css
-```
-
-Configure `/global.css`:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-Under `app/_layout.tsx`, add:
-
-```js
-import "../global.css";
-```
-
-### Expo Configuration
-
-#### Metro
-
-Create a `metro.config.js` file:
-
-```bash
-touch metro.config.js
-```
-
-Configure `metro.config.js`:
-
-```js
-const { getDefaultConfig } = require('expo/metro-config');
-const { withDs3 } = require('@consensys/ds3-config/metro');
-
-const config = getDefaultConfig(__dirname);
-
-module.exports = withDs3(config);
-```
-
-If using a monorepo (workspace), use the following configuration instead:
-
-```js
-const { getDefaultConfig } = require('expo/metro-config');
-const { withDs3Workspace } = require('@consensys/ds3-config/metro');
-
-const config = getDefaultConfig(__dirname);
-
-module.exports = withDs3Workspace(config);
-```
-
-#### Expo
-
-Create a `app.config.js` file:
-
-```bash
-touch app.config.js
-```
-
-Configure `app.config.js`:
-
-```js
-import withDs3 from '@consensys/ds3-config/expo';
-import themeConfig from './theme.config';
-
-module.exports = ({ config }) => {
-   return withDs3({ config, themeConfig });
-};
-```
-
-#### Babel
-
-Create a `babel.config.js` file:
-
-```bash
-touch babel.config.js
-```
-
-Create and configure `babel.config.js`:
-
-```js
-module.exports = function (api) {
-   api.cache(true);
-
-   return {
-      presets: ['@consensys/ds3-config/expo/babel'],
-   };
-};
-```
-
-## Additional Resources
-
-### Tree Shaking
-To enable tree shaking in your Expo app (experimental feature in SDK 52+), see the [official Expo tree shaking documentation](https://docs.expo.dev/guides/tree-shaking/#enabling-tree-shaking).
-
-Add the following configuration to your `metro.config.js`:
-
-```js
-const { getDefaultConfig } = require('expo/metro-config');
-const { withDs3} = require('@consensys/ds3-config/metro');
-
-const config = getDefaultConfig(__dirname);
-
-config.transformer.getTransformOptions = async () => ({
-  transform: {
-    experimentalImportSupport: true,
-    inlineRequires: true,
-  },
-});
-
-module.exports = withDs3(config);
-
-```
-
-And add this to your `.env` file:
-
-```bash
-EXPO_UNSTABLE_METRO_OPTIMIZE_GRAPH=1
-EXPO_UNSTABLE_TREE_SHAKING=1
-```
+For detailed theme customization options and documentation, refer to the [DS3 Theme Package](https://github.com/Consensys-Network-State/ds3/tree/main/packages/theme).

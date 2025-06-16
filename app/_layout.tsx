@@ -5,8 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
-import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, Text, openLink } from '@consensys/ds3'
-import { PortalHost } from '@rn-primitives/portal';
+import { ThemeProvider, useThemeColors, ModeToggle, ThemeSwitcher, Button, openLink } from '@consensys/ds3'
 import ExpoConstants from 'expo-constants';
 import { View } from 'react-native';
 import { ExternalLink } from 'lucide-react-native';
@@ -87,7 +86,6 @@ export default function RootLayout() {
     <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
       <ThemedDrawer />
       <StatusBar style="auto" />
-      <PortalHost />
     </ThemeProvider>
   );
 }
