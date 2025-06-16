@@ -3,12 +3,11 @@ module.exports = {
     default: {
       colors: {
         neutral: 'gray',
-        primary: 'violet',
-        secondary: 'teal',
+        primary: 'blue',
+        secondary: 'violet',
         error: 'red',
-        warning: 'yellow',
+        warning: 'amber',
         success: 'green',
-        leif: 'tomato',
       },
     },
     oceanBreeze: {
@@ -19,7 +18,6 @@ module.exports = {
         error: 'red',
         warning: 'amber',
         success: 'grass',
-        leif:'lime'
       },
     },
     sunsetGlow: {

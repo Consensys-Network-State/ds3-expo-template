@@ -11,7 +11,7 @@ pnpm create expo@latest
 
 2. Install dependencies:
 ```bash
-pnpm add @consensys/ds3-config @consensys/ds3
+pnpm add @consensys/ds3 @consensys/ds3-config
 ```
 
 ## Configuration Files
@@ -19,22 +19,20 @@ pnpm add @consensys/ds3-config @consensys/ds3
 ### 1. Theme Configuration (`theme.config.js`)
 
 ```javascript
-const { generateConfig } = require('@consensys/ds3-theme');
-
-module.exports = generateConfig({
+module.exports = {
   themes: {
     default: {
       colors: {
         neutral: 'gray',
-        primary: 'violet',
-        secondary: 'teal',
+        primary: 'blue',
+        secondary: 'violet',
         error: 'red',
-        warning: 'yellow',
+        warning: 'amber',
         success: 'green',
       },
-    },
+    }
   },
-});
+};
 ```
 
 ### 2. Tailwind Configuration
@@ -46,17 +44,16 @@ pnpm exec tailwindcss init
 
 Configure `tailwind.config.js`:
 ```javascript
-import nativewindPreset from "@consensys/ds3-config/nativewind";
+import ds3 from "@consensys/ds3-config/nativewind";
 import themeConfig from "./theme.config";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
-    './node_modules/@consensys/ds3/**/*.{js,jsx,ts,tsx}',
-    '!node_modules/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@consensys/ds3/src/**/*.{js,jsx,ts,tsx}'
   ],
-  presets: [nativewindPreset(themeConfig)],
+  presets: [ds3(themeConfig)],
 }
 ```
 
