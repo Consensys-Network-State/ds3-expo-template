@@ -82,6 +82,10 @@ module.exports = {
             a10: '#008345d7',
             a11: '#00814c',
             a12: '#00220fe2',
+            contrast: '#ffffff',
+            surface: '#f4fbf7cc',
+            indicator: '#30a46c',
+            track: '#30a46c'
           },
           dark: {
             1: '#0c130f',
@@ -108,6 +112,10 @@ module.exports = {
             a10: '#27ff9d90',
             a11: '#77ffb6ce',
             a12: '#bcffd7f0',
+            contrast: '#ffffff',
+            surface: '#121b1680',
+            indicator: '#30a46c',
+            track: '#30a46c'
           }
         },
 
