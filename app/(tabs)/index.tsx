@@ -5,17 +5,14 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { View } from 'react-native';
-import {
-  Button,
-  ModeToggle,
-  Text,
-  ThemeSwitcher
-} from '@consensys/ds3';
+import { useThemeColors } from '@consensys/ds3';
 
 export default function HomeScreen() {
+  const colors = useThemeColors();
+
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={colors.primary3}
       headerImage={
         <Image
           source={require('@/assets/images/partial-react-logo.png')}
@@ -27,17 +24,6 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <View className="flex flex-col sm:flex-row gap-2">
-
-          <View className="flex flex-row">
-            <ModeToggle />
-            <ThemeSwitcher />
-          </View>
-
-          <Button className="bg-primary-6">
-            <Text>Press Me!</Text>
-          </Button>
-        </View>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
