@@ -24,22 +24,28 @@ For details on how this template was set up from scratch, see [SETUP.md](./SETUP
 
 ```bash
 pnpm dlx degit Consensys-Network-State/ds3-expo-template ui
-cd ui
-pnpm install
-pnpm start
 ```
 
 ### Option 2: Using GitHub Template
 
 1. Click "Use this template" on the GitHub repository
 2. Clone your new repository
-3. Install dependencies:
+
+## Usage
+
+Install dependencies:
 ```bash
 pnpm install
 ```
-4. Start the development server:
+
+Start the development server:
 ```bash
 pnpm start
+```
+
+Build for web:
+```bash
+pnpm export:web
 ```
 
 ## Customization
@@ -47,9 +53,7 @@ pnpm start
 The template comes with a default theme configuration in `theme.config.js`. You can customize the theme by modifying this file:
 
 ```js
-const { generateConfig } = require('@consensys/ds3-theme');
-
-module.exports = generateConfig({
+module.exports = {
   themes: {
     default: {
       colors: {
@@ -59,10 +63,11 @@ module.exports = generateConfig({
         error: 'red',
         warning: 'amber',
         success: 'green',
+        info: 'blue',
       },
     },
-  },
-});
+  }
+};
 ```
 
 For detailed theme customization options and documentation, refer to the [DS3 Theme Package](https://github.com/Consensys-Network-State/ds3/tree/main/packages/theme).
