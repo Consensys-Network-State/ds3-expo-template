@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { ModeToggle, ThemeSwitcher } from '@consensys/ds3';
+import { ThemeToggle, ThemeSwitcher } from '@consensys/ds3';
 
 export default function SettingsScreen() {
   return (
@@ -13,7 +13,7 @@ export default function SettingsScreen() {
         
         <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
           <ThemedText>Mode:</ThemedText>
-          <ModeToggle />
+          <ThemeToggle />
         </View>
 
         <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
