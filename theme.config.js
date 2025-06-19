@@ -14,7 +14,7 @@ module.exports = {
         error: 'red',
         warning: 'amber',
         success: 'green',
-        info: 'blue',
+        info: 'cyan'
       },
     },
 
@@ -27,6 +27,7 @@ module.exports = {
         error: 'red',
         warning: 'amber',
         success: 'grass',
+        info: 'sky'
       },
     },
 
@@ -34,7 +35,7 @@ module.exports = {
     sunsetGlow: {
       colors: {
         primary: {
-          accent: '#d6409f',
+          accent: '#d6409f', // pink preset color
           gray: '#8B8D98',
           background: {
             light: '#FFFFFF',
@@ -42,7 +43,7 @@ module.exports = {
           }
         },
         secondary: {
-          accent: '#f76b15',
+          accent: '#f76b15', // orange preset color
         },
 
         // rest are Radix presets
@@ -50,13 +51,14 @@ module.exports = {
         error: 'crimson',
         warning: 'yellow',
         success: 'lime',
+        info: 'iris'
       },
     },
 
-    // Forest Hues theme custom values for primary
-    forestHues: {
+     // Forest Hues theme using custom values for primary
+     forestHues: {
       colors: {
-        primary: {
+        primary: { // green preset color
           light: {
             1: '#fbfefc',
             2: '#f4fbf7',
@@ -125,7 +127,26 @@ module.exports = {
         error: 'red',
         warning: 'orange',
         success: 'teal',
+        info: 'bronze'
       },
-    }
+    },
+
+    // Onyx theme - Monochrome black and white using Radix color generator
+    onyx: {
+      colors: {
+        neutral: 'gray',
+        primary: {
+          accent: {
+            light: '#000000',
+            dark: '#ffffff'
+          },
+        },
+        secondary: 'violet',
+        error: 'red',
+        warning: 'amber',
+        success: 'green',
+        info: 'cyan'
+      },
+    },
   },
 };
