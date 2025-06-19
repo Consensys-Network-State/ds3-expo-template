@@ -18,8 +18,8 @@ module.exports = {
       },
     },
 
-    // Ocean Breeze theme using Radix preset colors
-    oceanBreeze: {
+    // Ocean theme using Radix preset colors
+    ocean: {
       colors: {
         neutral: 'slate',
         primary: 'cyan',
@@ -31,8 +31,8 @@ module.exports = {
       },
     },
 
-    // Sunset Glow theme using Radix color generator
-    sunsetGlow: {
+    // Sunset theme using Radix color generator
+    sunset: {
       colors: {
         primary: {
           accent: '#d6409f', // pink preset color
@@ -55,8 +55,8 @@ module.exports = {
       },
     },
 
-     // Forest Hues theme using custom values for primary
-     forestHues: {
+     // Forest theme using custom values for primary
+     forest: {
       colors: {
         primary: { // green preset color
           light: {
