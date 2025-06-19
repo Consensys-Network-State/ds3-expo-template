@@ -15,27 +15,33 @@ const newDir = "app-example";
 const newAppDir = "app";
 const newDirPath = path.join(root, newDir);
 
-const indexContent = `import { Text, View } from "react-native";
+const indexContent = `import { View } from "react-native";
+import { Text } from "@consensys/ds3";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View className="flex-1 justify-center items-center">
       <Text>Edit app/index.tsx to edit this screen.</Text>
     </View>
   );
 }
+
 `;
 
-const layoutContent = `import { Stack } from "expo-router";
+const layoutContent = `import { StatusBar } from 'expo-status-bar';
+import { ThemeProvider } from '@consensys/ds3'
+import ThemedStack from '@/layout/ThemedStack';
+import ExpoConstants from 'expo-constants';
+import 'react-native-reanimated';
+import "../global.css";
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
+      <ThemedStack />
+      <StatusBar style="auto" />
+    </ThemeProvider>
+  );
 }
 `;
 
