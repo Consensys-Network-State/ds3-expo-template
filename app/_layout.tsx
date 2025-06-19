@@ -1,14 +1,12 @@
 import { useFonts } from 'expo-font';
-import { Drawer } from 'expo-router/drawer';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { ThemeProvider } from '@consensys/ds3'
 import ExpoConstants from 'expo-constants';
-import ThemedDrawer from '@/layout/ThemedDrawer';
+import { ThemedDrawer } from '@/components/ThemedDrawer';
 import 'react-native-reanimated';
 import "../global.css";
-
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -31,25 +29,18 @@ export default function RootLayout() {
   return (
     <ThemeProvider className="flex-1" config={ExpoConstants?.expoConfig?.extra?.DS3}>
       <ThemedDrawer>
-        <Drawer.Screen
+        <ThemedDrawer.Screen
           name="(tabs)"
           options={{
             title: 'Home',
             headerShown: true,
           }}
         />
-        <Drawer.Screen
-          name="settings"
-          options={{
-            title: 'Settings',
-            headerShown: true,
-          }}
-        />
-        <Drawer.Screen
+        <ThemedDrawer.Screen
           name="+not-found"
           options={{
-            drawerItemStyle: { display: 'none' },
-            headerShown: false,
+            title: '404',
+            headerShown: true,
           }}
         />
       </ThemedDrawer>

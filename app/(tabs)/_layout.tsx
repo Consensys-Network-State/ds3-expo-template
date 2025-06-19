@@ -1,29 +1,23 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import ThemedTabs from '@/layout/ThemedTabs';
+import { ThemedTabs } from '@/components/ThemedTabs';
+import { Icon } from '@consensys/ds3';
+import { Code, Home } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
-    <ThemedTabs
-      screenOptions={{
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-      }}>
-      <Tabs.Screen
+    <ThemedTabs>
+      <ThemedTabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Icon icon={Home} stroke={color} className="w-20 h-20" />,
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <ThemedTabs.Screen
+        name="+not-found"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: '404',
+          tabBarIcon: ({ color }) => <Icon icon={Code} stroke={color} className="w-20 h-20" />,
         }}
       />
     </ThemedTabs>
