@@ -70,8 +70,8 @@ export default function HomeScreen() {
                 className="self-center"
                 onPress={() => openLink('https://github.com/Consensys-Network-State/ds3/tree/main/packages/ui#-component-library')}
               >
-                <Button.Icon icon={BookOpen} />
-                <Button.Text>Component Library</Button.Text>
+                <Icon icon={BookOpen} />
+                <Text>Component Library</Text>
               </Button>
               
               <Button 
@@ -81,8 +81,8 @@ export default function HomeScreen() {
                 className="self-center"
                 onPress={() => openLink('https://github.com/Consensys-Network-State/ds3')}
               >
-                <Button.Icon icon={Github} />
-                <Button.Text>View on Github</Button.Text>
+                <Icon icon={Github} />
+                <Text>View on Github</Text>
               </Button>
             </View>
           </View>
@@ -98,8 +98,8 @@ export default function HomeScreen() {
               className="flex items-center gap-2 text-base"
               onPress={() => openLink('https://www.nativewind.dev/docs/getting-started/installation')}
             >
-              <Button.Icon icon={Waves} />
-              <Button.Text>NativeWind</Button.Text>
+              <Icon icon={Waves} />
+              <Text>NativeWind</Text>
             </Button>
             <Button
               variant="ghost"
@@ -107,8 +107,8 @@ export default function HomeScreen() {
               className="flex items-center gap-2 text-base"
               onPress={() => openLink('https://docs.expo.dev/')}
             >
-              <Button.Icon icon={Triangle} />
-              <Button.Text>Expo</Button.Text>
+              <Icon icon={Triangle} />
+              <Text>Expo</Text>
             </Button>
             <Button
               variant="ghost"
@@ -116,8 +116,8 @@ export default function HomeScreen() {
               className="flex items-center gap-2 text-base"
               onPress={() => openLink('https://reactnative.dev/docs/getting-started')}
             >
-              <Button.Icon icon={Globe} />
-              <Button.Text>React Native</Button.Text>
+              <Icon icon={Globe} />
+              <Text>React Native</Text>
             </Button>
           </View>
         </View>
